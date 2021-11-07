@@ -19,6 +19,7 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 --   theme = "nord"
 -- }
 
+
 -- NvChad included plugin options & overrides
 M.plugins = {
    options = {
@@ -36,5 +37,66 @@ M.plugins = {
    default_plugin_config_replace = {},
 }
 
+M.mappings = {
+
+   insert_nav = {
+      backward = "<C-b>",
+      end_of_line = "<C-e>",
+      forward = "<C-f>",
+      next_line = "<C-k>",
+      prev_line = "<C-j>",
+      beginning_of_line = "<C-a>",
+   },
+
+
+
+}
+-- all plugins related mappings
+M.mappings.plugins = {
+   -- list open buffers up the top, easy switching too
+   bufferline = {
+      next_buffer = "<TAB>", -- next buffer
+      prev_buffer = "<S-Tab>", -- previous buffer
+   },
+   -- easily (un)comment code, language aware
+   comment = {
+      -- toggle = "<leader>/", -- toggle comment (works on multiple lines)
+      toggle = "gc", -- toggle comment (works on multiple lines)
+   },
+   -- NeoVim 'home screen' on open
+   dashboard = {
+      bookmarks = "<leader>bm",
+      new_file = "<leader>fn", -- basically create a new buffer
+      open = "<leader>db", -- open dashboard
+      session_load = "<leader>l", -- load a saved session
+      session_save = "<leader>s", -- save a session
+   },
+   -- map to <ESC> with no lag
+   better_escape = { -- <ESC> will still work
+      esc_insertmode = { "jk" }, -- multiple mappings allowed
+   },
+   -- file explorer/tree
+   nvimtree = {
+      -- toggle = "<C-n>",
+      toggle = "<leader>oe",
+      focus = "<leader>e",
+   },
+   -- multitool for finding & picking things
+   telescope = {
+      buffers = "<leader>fb",
+      find_files = "<C-p>",
+      find_hiddenfiles = "<leader>fa",
+      git_commits = "<leader>cm",
+      git_status = "<leader>gt",
+      help_tags = "<leader>fh",
+      live_grep = "<leader><leader>g",
+      oldfiles = "<leader>fo",
+      themes = "<leader>th", -- NvChad theme picker
+      -- media previews within telescope finders
+      telescope_media = {
+         media_files = "<leader>fp",
+      },
+   },
+}
 
 return M
