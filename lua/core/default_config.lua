@@ -119,9 +119,9 @@ M.mappings = {
    theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
    -- navigation in insert mode, only if enabled in options
    insert_nav = {
-      backward = "<C-h>",
+      backward = "<C-b>",
       end_of_line = "<C-e>",
-      forward = "<C-l>",
+      forward = "<C-f>",
       next_line = "<C-k>",
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
@@ -160,7 +160,8 @@ M.mappings.plugins = {
    },
    -- easily (un)comment code, language aware
    comment = {
-      toggle = "<leader>/", -- toggle comment (works on multiple lines)
+      -- toggle = "<leader>/", -- toggle comment (works on multiple lines)
+      toggle = "gc", -- toggle comment (works on multiple lines)
    },
    -- NeoVim 'home screen' on open
    dashboard = {
@@ -177,7 +178,8 @@ M.mappings.plugins = {
    -- file explorer/tree
    nvimtree = {
       toggle = "<C-n>",
-      focus = "<leader>e",
+      -- focus = "<leader>e",
+      focus = "<C-g>",
    },
    -- multitool for finding & picking things
    telescope = {
