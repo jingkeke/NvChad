@@ -19,14 +19,13 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 --   theme = "nord"
 -- }
 
-
 -- NvChad included plugin options & overrides
 M.plugins = {
    options = {
-        lspconfig = {
+      lspconfig = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
          setup_lspconf = "custom.plugins.lspconfig",
-        },
+      },
    },
    -- To change the Packer `config` of a plugin that comes with NvChad,
    -- add a table entry below matching the plugin github name
@@ -47,9 +46,6 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
-
-
-
 }
 -- all plugins related mappings
 M.mappings.plugins = {

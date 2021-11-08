@@ -23,50 +23,39 @@ local hooks = require "core.hooks"
 
 hooks.add("setup_mappings", function(map)
    -- map("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
-   
--- 通过 12<Enter> 跳转到第 12 行 （12G 我觉得不称手）
--- 按 <Enter> 跳到行文件末尾。
--- 按 <Backspace> 回到文件开始。
-   map("n","<CR>" ,"G",opt)
-   map("n","<BS>" ,"gg",opt)
 
-     -- <Space>  --  <leader><leader> toggles between buffers
-   map("n","<Leader><Leader>" ,"<c-^>",opt)
+   -- 通过 12<Enter> 跳转到第 12 行 （12G 我觉得不称手）
+   -- 按 <Enter> 跳到行文件末尾。
+   -- 按 <Backspace> 回到文件开始。
+   map("n", "<CR>", "G", opt)
+   map("n", "<BS>", "gg", opt)
 
+   -- <Space>  --  <leader><leader> toggles between buffers
+   map("n", "<Leader><Leader>", "<c-^>", opt)
 
--- buffers ::
+   -- buffers ::
 
-   map("","<leader>l" ,":bnext<cr>",opt)
-   map("","<leader>h" ,":bprevious<cr>",opt)
-
+   map("", "<leader>l", ":bnext<cr>", opt)
+   map("", "<leader>h", ":bprevious<cr>", opt)
 
    -- " Switch CWD to the directory of the open buffer  not work
-    -- map <leader><leader>cd :cd %:p:h<cr>:pwd<cr>
-   map("n","<leader><leader>cd" ,":cd %:p:h<cr>:pwd",opt)
+   -- map <leader><leader>cd :cd %:p:h<cr>:pwd<cr>
+   map("n", "<leader><leader>cd", ":cd %:p:h<cr>:pwd", opt)
 
+   --    " numbers  go to n tab  **ilike
+   -- nnoremap <Leader>n :tabnew<CR>
+   -- nnoremap <Leader>x :tabclose<CR>
 
---    " numbers  go to n tab  **ilike
--- nnoremap <Leader>n :tabnew<CR>
--- nnoremap <Leader>x :tabclose<CR>
+   map("n", "<leader>1", "1gt<CR>", opt)
+   map("n", "<leader>2", "2gt<CR>", opt)
+   map("n", "<leader>3", "3gt<CR>", opt)
+   map("n", "<leader>4", "4gt<CR>", opt)
 
-   map("n","<leader>1" ,"1gt<CR>",opt)
-   map("n","<leader>2" ,"2gt<CR>",opt)
-   map("n","<leader>3" ,"3gt<CR>",opt)
-   map("n","<leader>4" ,"4gt<CR>",opt)
-
-
-
-
-
-
-   map("i","jj" ,"<ESC>",opt)
-   map("","H" ,"^",opt)
-   map("","L" ,"$",opt)
-   map("n","<Leader>q" ,":q<CR>",opt)
-   map("n","<Leader>w" ,":w<CR>",opt)
-
-
-
+   map("i", "jj", "<ESC>", opt)
+   map("", "H", "^", opt)
+   map("", "L", "$", opt)
+   map("n", "<Leader>q", ":q<CR>", opt)
+   map("n", "<Leader>w", ":w<CR>", opt)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -80,19 +69,19 @@ hooks.add("install_plugins", function(use)
       event = "InsertEnter",
    }
 
---    use {
--- 	"williamboman/nvim-lsp-installer",
--- 	config = function()
--- 	   local lsp_installer = require "nvim-lsp-installer"
-  
--- 	   lsp_installer.on_server_ready(function(server)
--- 	      local opts = {}
-  
--- 	      server:setup(opts)
--- 	      vim.cmd [[ do User LspAttachBuffers ]]
--- 	   end)
--- 	end,
---      }
+   --    use {
+   -- 	"williamboman/nvim-lsp-installer",
+   -- 	config = function()
+   -- 	   local lsp_installer = require "nvim-lsp-installer"
+
+   -- 	   lsp_installer.on_server_ready(function(server)
+   -- 	      local opts = {}
+
+   -- 	      server:setup(opts)
+   -- 	      vim.cmd [[ do User LspAttachBuffers ]]
+   -- 	   end)
+   -- 	end,
+   --      }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
