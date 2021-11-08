@@ -119,9 +119,9 @@ M.mappings = {
    theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
    -- navigation in insert mode, only if enabled in options
    insert_nav = {
-      backward = "<C-b>",
+      backward = "<C-h>",
       end_of_line = "<C-e>",
-      forward = "<C-f>",
+      forward = "<C-l>",
       next_line = "<C-k>",
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
@@ -160,8 +160,7 @@ M.mappings.plugins = {
    },
    -- easily (un)comment code, language aware
    comment = {
-      -- toggle = "<leader>/", -- toggle comment (works on multiple lines)
-      toggle = "gc", -- toggle comment (works on multiple lines)
+      toggle = "<leader>/", -- toggle comment (works on multiple lines)
    },
    -- NeoVim 'home screen' on open
    dashboard = {

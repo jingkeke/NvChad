@@ -46,8 +46,8 @@ hooks.add("setup_mappings", function(map)
    -- nnoremap <Leader>n :tabnew<CR>
    -- nnoremap <Leader>x :tabclose<CR>
 
-   map("n", "<leader>1", "1gt<CR>", opt)
-   map("n", "<leader>2", "2gt<CR>", opt)
+   map("n", "<leader><leader>1", "1gt<CR>", opt)
+   map("n", "<leader><leader>2", "2gt<CR>", opt)
    map("n", "<leader>3", "3gt<CR>", opt)
    map("n", "<leader>4", "4gt<CR>", opt)
 
@@ -64,10 +64,10 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-   use {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
-   }
+   -- use {
+   --    "max397574/better-escape.nvim",
+   --    event = "InsertEnter",
+   -- }
 
    --    use {
    -- 	"williamboman/nvim-lsp-installer",
