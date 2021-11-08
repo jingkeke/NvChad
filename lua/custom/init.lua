@@ -33,21 +33,20 @@ hooks.add("setup_mappings", function(map)
    -- <Space>  --  <leader><leader> toggles between buffers
    map("n", "<Leader><Leader>", "<c-^>", opt)
 
+   --=============================================================================
+   -- EDITOR SETTINGS
+   --=============================================================================
 
---=============================================================================
--- EDITOR SETTINGS
---=============================================================================
-
---
---buffers
------------------------------------------------------------------------------------
+   --
+   --buffers
+   -----------------------------------------------------------------------------------
 
    map("", "<leader>l", ":bnext<cr>", opt)
    map("", "<leader>h", ":bprevious<cr>", opt)
 
---
---tabs
------------------------------------------------------------------------------------
+   --
+   --tabs
+   -----------------------------------------------------------------------------------
    -- " Switch CWD to the directory of the open buffer  not work
    -- map <leader><leader>cd :cd %:p:h<cr>:pwd<cr>
    map("n", "<leader><leader>cd", ":cd %:p:h<cr>:pwd", opt)
@@ -61,28 +60,23 @@ hooks.add("setup_mappings", function(map)
    -- map("n", "<leader>3", "3gt<CR>", opt)
    -- map("n", "<leader>4", "4gt<CR>", opt)
 
+   --" Tmux
+   --todo
+   --"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+   --" These lines change the cursor from block cursor mode to vertical bar cursor mode when using tmux.
+   --" Without these lines, tmux always uses block cursor mode.
+   --" allows cursor change in tmux mode
+   -- if exists('$TMUX')
+   --     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+   --     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+   -- else
+   --     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+   --     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+   -- endif
 
---" Tmux
---todo
---"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
---" These lines change the cursor from block cursor mode to vertical bar cursor mode when using tmux.
---" Without these lines, tmux always uses block cursor mode.
---" allows cursor change in tmux mode
--- if exists('$TMUX')
---     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
---     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
--- else
---     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
---     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
--- endif
-
-
-
-
-
---
--- others
------------------------------------------------------------------------------------
+   --
+   -- others
+   -----------------------------------------------------------------------------------
    map("i", "jj", "<ESC>", opt)
    map("", "H", "^", opt)
    map("", "L", "$", opt)
@@ -96,10 +90,9 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-
-  use{
-    "tpope/vim-unimpaired"
-  }
+   use {
+      "tpope/vim-unimpaired",
+   }
    -- use {
    --    "max397574/better-escape.nvim",
    --    event = "InsertEnter",
