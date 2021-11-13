@@ -44,6 +44,25 @@ hooks.add("setup_mappings", function(map)
 
    map("", "<leader>l", ":bnext<cr>", opt)
    map("", "<leader>h", ":bprevious<cr>", opt)
+   -- 现在要敲个回车?
+   map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+
+--   FZF
+-- " nmap <Leader>; :Buffers<CR>
+-- nnoremap <Leader>; <cmd>Telescope buffers<cr>
+
+
+--
+--history
+-----------------------------------------------------------------------------------
+--https://stackoverflow.com/questions/3171284/recent-file-history-in-vim 
+-- least terminal vim stores the previous ten files into ~/.viminfo in the filemarks section.
+-- You can use '0, '1, '2, ... '9 to jump among them. 
+
+   -- map("", "<C-y>", ":browse oldfiles", opt)
+   -- enter q to choose file
+   -- map("", "<C-y>", ":browse old", opt)
+   map("", "<C-y>", ":History<CR>", opt)
 
 --
 --tabs
@@ -88,6 +107,15 @@ hooks.add("setup_mappings", function(map)
    map("", "L", "$", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
    map("n", "<Leader>w", ":w<CR>", opt)
+   map("n", "<C-g>", ":Goyo<cr>", opt)
+
+   map("n", "<Leader>os", ":setlocal spell! spelllang=en_us", opt)
+   
+   map("n","<Leader>`v",":vsp ~/.vimrc<CR>",opt)
+
+-- nnoremap <Leader>`v :vsp ~/.vimrc<CR>
+
+
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -100,6 +128,30 @@ hooks.add("install_plugins", function(use)
   use{
     "tpope/vim-unimpaired"
   }
+
+  --  Distraction free mode
+  use{
+    "junegunn/goyo.vim"
+  }
+
+  -- tmux
+  use{
+    "christoomey/vim-tmux-navigator"
+  }
+
+-- FZF plugin, makes Ctrl-P unnecessary  https://github.com/junegunn/fzf
+     -- 现在没配这个不行 2021年11月10日上午9:22:17  { 'dir': '~/.fzf', 'do': './install --all' }  
+     --
+  use{
+     'junegunn/fzf',
+      run = 'cd ~/.fzf && ./install --all',
+     requires={
+         "junegunn/fzf.vim"
+     }
+
+  }
+
+
    -- use {
    --    "max397574/better-escape.nvim",
    --    event = "InsertEnter",
