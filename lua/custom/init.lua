@@ -97,17 +97,36 @@ hooks.add("setup_mappings", function(map)
 
 
 
-
-
 --
+-- Editor
+-----------------------------------------------------------------------------------
+   map("", "H", "^", opt)
+   map("", "L", "$", opt)
+
+-- draging lines up and down
+map("n", "<leader>k",  ":m .-2<CR>==", opt )
+map("n", "<leader>j",  ":m .+1<CR>==", opt)
+map("v", "J",          ":m '>+1<CR>gv=gv", opt)
+map("v", "K",          ":m '<-2<CR>gv=gv", opt)
+
+-- " Movement
+-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+-- " move vertically by visual line
+-- nnoremap j gj
+-- nnoremap k gk
+   map ('v','j', "gj", opt)
+   map ('v','k', "gk", opt)
+
+
 -- others
 -----------------------------------------------------------------------------------
    map("i", "jj", "<ESC>", opt)
-   map("", "H", "^", opt)
-   map("", "L", "$", opt)
+   map("n", "Q", "<Nop>", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
    map("n", "<Leader>w", ":w<CR>", opt)
-   map("n", "<C-g>", ":Goyo<cr>", opt)
+   -- map("n", "<C-g>", ":Goyo<cr>", opt)
+   map("n", "<C-g>", "<cmd> TZFocus<CR>", opt)
+   map("n", m, ":CommentToggle <CR>")
 
    map("n", "<Leader>os", ":setlocal spell! spelllang=en_us", opt)
    
@@ -125,14 +144,42 @@ end)
 
 hooks.add("install_plugins", function(use)
 
+-- Pairs of mappings [<Space> and ]<Space> add 
+-- newlines [f files    https://github.com/tpope/vim-unimpaired
   use{
     "tpope/vim-unimpaired"
   }
 
-  --  Distraction free mode
+
+
+-- Movement
+-- " https://github.com/justinmk/vim-sneak
+use{  'justinmk/vim-sneak'}
+
+use{ 'easymotion/vim-easymotion'}
+use{ 'haya14busa/incsearch-easymotion.vim'}
+
+-- Surround with parentheses & co
   use{
-    "junegunn/goyo.vim"
-  }
+    'tpope/vim-surround'
+  } 
+
+
+  --  Distraction free mode
+  -- use{
+    -- "junegunn/goyo.vim"
+  -- }
+     use {
+      "Pocco81/TrueZen.nvim",
+      cmd = {
+         "TZAtaraxis",
+         "TZMinimalist",
+         "TZFocus",
+      },
+      config = function()
+          -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
+      end
+   }
 
   -- tmux
   use{
@@ -144,12 +191,22 @@ hooks.add("install_plugins", function(use)
      --
   use{
      'junegunn/fzf',
-      run = 'cd ~/.fzf && ./install --all',
+     run = 'cd ~/.fzf && ./install --all',
      requires={
          "junegunn/fzf.vim"
      }
 
   }
+
+   use {
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugins.nullls").setup()
+      end,
+   }
+
+-- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
 
 
    -- use {

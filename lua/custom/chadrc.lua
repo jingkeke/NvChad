@@ -11,8 +11,39 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- To use this file, copy the structure of `core/default_config.lua`,
 -- examples of setting relative number & changing theme:
 
+-- Folding
+-----------------------------------------------------------------------------------
+-- set foldlevelstart=10   " open most folds by default
+-- set foldnestmax=10      " 10 nested fold max
+
+-- space open/closes folds
+-- nnoremap <space> za
+-- set foldmethod=indent   " fold based on indent level
+
+-- This is especially useful for me since I spend my days in Python.
+-- Other acceptable values are marker, manual, expr, syntax, diff.
+-- Run :help foldmethod to find out what each of those do.
+-- 
+
+
 M.options = {
    relativenumber = true,
+   number = true, 
+   cursorline = true,
+   wildmenu = true ,
+   showmatch = true,
+   updatetime = 100,
+   ttyfast = true ,
+   so = 5,
+   showmode = true,
+   scrolloff = 12 ,
+   foldenable = true,
+   foldlevelstart = 10,
+   foldnestmax= 10,
+   foldmethod = indent,
+   
+
+
 }
 
 -- M.ui = {
