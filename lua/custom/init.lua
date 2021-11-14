@@ -33,40 +33,38 @@ hooks.add("setup_mappings", function(map)
    -- <Space>  --  <leader><leader> toggles between buffers
    map("n", "<Leader><Leader>", "<c-^>", opt)
 
+   --=============================================================================
+   -- EDITOR SETTINGS
+   --=============================================================================
 
---=============================================================================
--- EDITOR SETTINGS
---=============================================================================
-
---
---buffers
------------------------------------------------------------------------------------
+   --
+   --buffers
+   -----------------------------------------------------------------------------------
 
    map("", "<leader>l", ":bnext<cr>", opt)
    map("", "<leader>h", ":bprevious<cr>", opt)
    -- 加个回车?
-   map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+   map("n", "<leader>;", ":Telescope buffers<CR>", opt)
 
---   FZF
--- " nmap <Leader>; :Buffers<CR>
--- nnoremap <Leader>; <cmd>Telescope buffers<cr>
+   --   FZF
+   -- " nmap <Leader>; :Buffers<CR>
+   -- nnoremap <Leader>; <cmd>Telescope buffers<cr>
 
-
---
---history
------------------------------------------------------------------------------------
---https://stackoverflow.com/questions/3171284/recent-file-history-in-vim 
--- least terminal vim stores the previous ten files into ~/.viminfo in the filemarks section.
--- You can use '0, '1, '2, ... '9 to jump among them. 
+   --
+   --history
+   -----------------------------------------------------------------------------------
+   --https://stackoverflow.com/questions/3171284/recent-file-history-in-vim
+   -- least terminal vim stores the previous ten files into ~/.viminfo in the filemarks section.
+   -- You can use '0, '1, '2, ... '9 to jump among them.
 
    -- map("", "<C-y>", ":browse oldfiles", opt)
    -- enter q to choose file
    -- map("", "<C-y>", ":browse old", opt)
    map("", "<C-y>", ":History<CR>", opt)
 
---
---tabs
------------------------------------------------------------------------------------
+   --
+   --tabs
+   -----------------------------------------------------------------------------------
    -- " Switch CWD to the directory of the open buffer  not work
    -- map <leader><leader>cd :cd %:p:h<cr>:pwd<cr>
    map("n", "<leader><leader>cd", ":cd %:p:h<cr>:pwd", opt)
@@ -80,61 +78,35 @@ hooks.add("setup_mappings", function(map)
    -- map("n", "<leader>3", "3gt<CR>", opt)
    -- map("n", "<leader>4", "4gt<CR>", opt)
 
+   --" Tmux
+   --todo
+   --"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+   --" These lines change the cursor from block cursor mode to vertical bar cursor mode when using tmux.
+   --" Without these lines, tmux always uses block cursor mode.
+   --" allows cursor change in tmux mode
+   -- if exists('$TMUX')
+   --     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+   --     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+   -- else
+   --     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+   --     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+   -- endif
 
---" Tmux
---todo
---"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
---" These lines change the cursor from block cursor mode to vertical bar cursor mode when using tmux.
---" Without these lines, tmux always uses block cursor mode.
---" allows cursor change in tmux mode
--- if exists('$TMUX')
---     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
---     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
--- else
---     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
---     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
--- endif
-
-
-
---
--- Editor
------------------------------------------------------------------------------------
+   --
+   -- others
+   -----------------------------------------------------------------------------------
+   map("i", "jj", "<ESC>", opt)
    map("", "H", "^", opt)
    map("", "L", "$", opt)
-
--- draging lines up and down
-map("n", "<leader>k",  ":m .-2<CR>==", opt )
-map("n", "<leader>j",  ":m .+1<CR>==", opt)
-map("v", "J",          ":m '>+1<CR>gv=gv", opt)
-map("v", "K",          ":m '<-2<CR>gv=gv", opt)
-
--- " Movement
--- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
--- " move vertically by visual line
--- nnoremap j gj
--- nnoremap k gk
-   map ('v','j', "gj", opt)
-   map ('v','k', "gk", opt)
-
-
--- others
------------------------------------------------------------------------------------
-   map("i", "jj", "<ESC>", opt)
-   map("n", "Q", "<Nop>", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
    map("n", "<Leader>w", ":w<CR>", opt)
-   -- map("n", "<C-g>", ":Goyo<cr>", opt)
-   map("n", "<C-g>", "<cmd> TZFocus<CR>", opt)
-   map("n", m, ":CommentToggle <CR>")
+   map("n", "<C-g>", ":Goyo<cr>", opt)
 
    map("n", "<Leader>os", ":setlocal spell! spelllang=en_us", opt)
-   
-   map("n","<Leader>`v",":vsp ~/.vimrc<CR>",opt)
 
--- nnoremap <Leader>`v :vsp ~/.vimrc<CR>
+   map("n", "<Leader>`v", ":vsp ~/.vimrc<CR>", opt)
 
-
+   -- nnoremap <Leader>`v :vsp ~/.vimrc<CR>
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -143,71 +115,30 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-
--- Pairs of mappings [<Space> and ]<Space> add 
--- newlines [f files    https://github.com/tpope/vim-unimpaired
-  use{
-    "tpope/vim-unimpaired"
-  }
-
-
-
--- Movement
--- " https://github.com/justinmk/vim-sneak
-use{  'justinmk/vim-sneak'}
-
-use{ 'easymotion/vim-easymotion'}
-use{ 'haya14busa/incsearch-easymotion.vim'}
-
--- Surround with parentheses & co
-  use{
-    'tpope/vim-surround'
-  } 
-
-
-  --  Distraction free mode
-  -- use{
-    -- "junegunn/goyo.vim"
-  -- }
-     use {
-      "Pocco81/TrueZen.nvim",
-      cmd = {
-         "TZAtaraxis",
-         "TZMinimalist",
-         "TZFocus",
-      },
-      config = function()
-          -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
-      end
-   }
-
-  -- tmux
-  use{
-    "christoomey/vim-tmux-navigator"
-  }
-
--- FZF plugin, makes Ctrl-P unnecessary  https://github.com/junegunn/fzf
-     -- 现在没配这个不行 2021年11月10日上午9:22:17  { 'dir': '~/.fzf', 'do': './install --all' }  
-     --
-  use{
-     'junegunn/fzf',
-     run = 'cd ~/.fzf && ./install --all',
-     requires={
-         "junegunn/fzf.vim"
-     }
-
-  }
-
    use {
-      "jose-elias-alvarez/null-ls.nvim",
-      after = "nvim-lspconfig",
-      config = function()
-         require("custom.plugins.nullls").setup()
-      end,
+      "tpope/vim-unimpaired",
    }
 
--- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
+   --  Distraction free mode
+   use {
+      "junegunn/goyo.vim",
+   }
 
+   -- tmux
+   use {
+      "christoomey/vim-tmux-navigator",
+   }
+
+   -- FZF plugin, makes Ctrl-P unnecessary  https://github.com/junegunn/fzf
+   -- 现在没配这个不行 2021年11月10日上午9:22:17  { 'dir': '~/.fzf', 'do': './install --all' }
+   --
+   use {
+      "junegunn/fzf",
+      run = "cd ~/.fzf && ./install --all",
+      requires = {
+         "junegunn/fzf.vim",
+      },
+   }
 
    -- use {
    --    "max397574/better-escape.nvim",
