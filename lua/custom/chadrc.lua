@@ -23,27 +23,23 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- This is especially useful for me since I spend my days in Python.
 -- Other acceptable values are marker, manual, expr, syntax, diff.
 -- Run :help foldmethod to find out what each of those do.
--- 
-
+--
 
 M.options = {
    relativenumber = true,
-   number = true, 
+   number = true,
    cursorline = true,
-   wildmenu = true ,
+   wildmenu = true,
    showmatch = true,
    updatetime = 100,
-   ttyfast = true ,
+   ttyfast = true,
    so = 5,
    showmode = true,
-   scrolloff = 12 ,
+   scrolloff = 12,
    foldenable = true,
    foldlevelstart = 10,
-   foldnestmax= 10,
+   foldnestmax = 10,
    foldmethod = indent,
-   
-
-
 }
 
 -- M.ui = {

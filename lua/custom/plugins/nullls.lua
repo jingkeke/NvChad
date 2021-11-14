@@ -1,7 +1,6 @@
 --  https://nvchad.github.io/config/Format%20&%20lint
 local ok, null_ls = pcall(require, "null-ls")
 
-
 if not ok then
    return
 end
@@ -12,7 +11,16 @@ local sources = {
 
    -- JS html css stuff
    b.formatting.prettierd.with {
-      filetypes = {"typescriptreact","typescript", "html", "json", "markdown", "css", "javascript", "javascriptreact" },
+      filetypes = {
+         "typescriptreact",
+         "typescript",
+         "html",
+         "json",
+         "markdown",
+         "css",
+         "javascript",
+         "javascriptreact",
+      },
    },
    b.diagnostics.eslint.with {
       command = "eslint_d",
