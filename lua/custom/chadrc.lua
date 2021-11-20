@@ -37,6 +37,8 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
    -- foldmethod = indent,
    -- cursorline = true,
    -- wildmenu = true ,
+vim.g.python3_host_prog = '~/.neovim/py3/bin/python'
+vim.g.node_host_prog = '~/.neovim/node/bin/neovim-node-host'
    
 
 M.options = {
@@ -50,22 +52,62 @@ M.options = {
 --   theme = "nord"
 -- }
 
--- NvChad included plugin options & overrides
+
+
+-- these are plugin related options
 M.plugins = {
+
+  -- enable and disable plugins (false for disable)
+   status = {
+      blankline = true, -- show code scope with symbols
+      bufferline = true, -- list open buffers up the top, easy switching too
+      colorizer = false, -- color RGB, HEX, CSS, NAME color codes
+      comment = true, -- easily (un)comment code, language aware
+      dashboard = true, -- NeoVim 'home screen' on open
+      esc_insertmode = true, -- map to <ESC> with no lag
+      feline = true, -- statusline
+      gitsigns = true, -- gitsigns in statusline
+      lspsignature = true, -- lsp enhancements
+      telescope_media = false, -- media previews within telescope finders
+      vim_matchup = true, -- % operator enhancements
+      cmp = true,
+      nvimtree = true,
+      autopairs = true,
+   },
+
+
    options = {
+      autopairs = { loadAfter = "nvim-cmp" },
       lspconfig = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
          setup_lspconf = "custom.plugins.lspconfig",
       },
+      nvimtree = {
+         enable_git = 0,
+      },
+      luasnip = {
+         snippet_path = {},
+      },
+      statusline = { -- statusline related options
+         -- these are filetypes, not pattern matched
+         -- shown filetypes will overrule hidden filetypes
+         hidden = {
+            "help",
+            "dashboard",
+            "NvimTree",
+            "terminal",
+         },
+         -- show short statusline on small screens
+         shortline = true,
+         shown = {},
+         -- default, round , slant , block , arrow
+         style = "default",
+      },
+      esc_insertmode_timeout = 300,
    },
-   -- To change the Packer `config` of a plugin that comes with NvChad,
-   -- add a table entry below matching the plugin github name
-   --              '-' -> '_', remove any '.lua', '.nvim' extensions
-   -- this string will be called in a `require`
-   --              use "(custom.configs).my_func()" to call a function
-   --              use "custom.blankline" to call a file
    default_plugin_config_replace = {},
 }
+
 
 M.mappings = {
 
@@ -135,7 +177,8 @@ M.mappings.plugins = {
       git_status = "<leader>gt",
       help_tags = "<leader>fh",
       live_grep = "<leader><leader>g",
-      oldfiles = "<leader>fo",
+      -- oldfiles = "<leader>fo",
+      oldfiles = "<C-y>",
       themes = "<leader>th", -- NvChad theme picker
       -- media previews within telescope finders
       telescope_media = {

@@ -6,6 +6,9 @@ g.nvchad_user_config = "chadrc"
 
 local options = require("core.utils").load_config().options
 
+-- Stop sourcing filetype.vim
+g.did_load_filetypes = 1
+
 opt.title = true
 opt.clipboard = options.clipboard
 opt.cmdheight = options.cmdheight

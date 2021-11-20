@@ -44,12 +44,9 @@ hooks.add("setup_mappings", function(map)
 
    -- map("", "<leader>l", ":bnext<cr>", opt)
    -- map("", "<leader>h", ":bprevious<cr>", opt)
-   -- 加个回车?
-   map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+   -- 回车
+   -- map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
 
---   FZF
--- " nmap <Leader>; :Buffers<CR>
--- nnoremap <Leader>; <cmd>Telescope buffers<cr>
 
 
 --
@@ -120,7 +117,7 @@ map("v", "K",          ":m '<-2<CR>gv=gv", opt)
 
 -- others
 -----------------------------------------------------------------------------------
-   map("i", "jj", "<ESC>", opt)
+   -- map("i", "jj", "<ESC>", opt)   better-escape 已经加了
    -- map("n", "Q", "<Nop>", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
    map("n", "<Leader>w", ":w<CR>", opt)
@@ -147,6 +144,7 @@ hooks.add("install_plugins", function(use)
 
 -- Pairs of mappings [<Space> and ]<Space> add 
 -- newlines [f files    https://github.com/tpope/vim-unimpaired
+
   use{
     "tpope/vim-unimpaired"
   }
@@ -155,9 +153,23 @@ hooks.add("install_plugins", function(use)
 
 -- Movement
 -- " https://github.com/justinmk/vim-sneak
-use{  'justinmk/vim-sneak'}
 
-use{ 'easymotion/vim-easymotion'}
+-- use{
+--   'justinmk/vim-sneak' ,
+--      config = function()
+--      end
+-- }
+-- 
+-- use{
+--   'easymotion/vim-easymotion',
+--     
+--       config = function()
+--          require("custom.plugins.easymotion")
+--       end,
+-- 
+-- }
+
+   use { "nathom/filetype.nvim" }
 
 -- https://github.com/haya14busa/incsearch-easymotion.vim  不知道怎么写配置....
 -- use{ 'haya14busa/incsearch-easymotion.vim'}
@@ -172,18 +184,18 @@ use{ 'easymotion/vim-easymotion'}
   -- use{
     -- "junegunn/goyo.vim"
   -- }
-     use {
-      "Pocco81/TrueZen.nvim",
-      cmd = {
-         "TZAtaraxis",
-         "TZMinimalist",
-         "TZFocus",
-      },
-      config = function()
-          -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
-
-      end
-   }
+--      use {
+--       "Pocco81/TrueZen.nvim",
+--       cmd = {
+--          "TZAtaraxis",
+--          "TZMinimalist",
+--          "TZFocus",
+--       },
+--       config = function()
+--           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
+-- 
+--       end
+--    }
 
   -- tmux
   use{

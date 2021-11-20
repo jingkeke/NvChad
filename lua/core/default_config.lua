@@ -42,6 +42,7 @@ M.options = {
 
 -- ui configs
 M.ui = {
+   hl_override = "", -- path of your file which contains highlight stuffs
    italic_comments = false,
    -- theme to be used, check available themes with `<leader> + t + h`
    theme = "onedark",
@@ -63,7 +64,7 @@ M.plugins = {
       bufferline = true, -- list open buffers up the top, easy switching too
       colorizer = false, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
-      dashboard = false, -- NeoVim 'home screen' on open
+      dashboard = true, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
       feline = true, -- statusline
       gitsigns = true, -- gitsigns in statusline
