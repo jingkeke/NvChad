@@ -77,6 +77,24 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
+
+
+   -- terminal related mappings
+   terminal = {
+      -- multiple mappings can be given for esc_termmode and esc_hide_termmode
+      -- get out of terminal mode
+      esc_termmode = { "jk" }, -- multiple mappings allowed
+      -- get out of terminal mode and hide it
+      esc_hide_termmode = { "JK" }, -- multiple mappings allowed
+      -- show & recover hidden terminal buffers in a telescope picker
+      pick_term = "<leader><leader>c",
+      -- below three are for spawning terminals
+      new_horizontal = "<leader>h",
+      new_vertical = "<leader>v",
+      new_window = "<leader>t",
+   },
+
+
 }
 -- all plugins related mappings
 M.mappings.plugins = {

@@ -31,7 +31,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<BS>", "gg", opt)
 
    -- <Space>  --  <leader><leader> toggles between buffers
-   map("n", "<Leader><Leader>", "<c-^>", opt)
+   -- map("n", "<Leader><Leader>", "<c-^>", opt)
 
 
 --=============================================================================
