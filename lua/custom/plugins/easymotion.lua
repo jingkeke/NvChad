@@ -13,7 +13,7 @@ g.EasyMotion_smartcase = 1
 
 g["seak#label"] = 1
 
--- use vim config  
+-- use vim config
 vim.cmd "source ~/.config/nvim/lua/custom/plugins/easymotion.vim"
 
 vim.api.nvim_set_keymap("n", "<Leader>t", "<Plug>(easymotion-t2)", { noremap = true })
