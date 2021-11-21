@@ -1,6 +1,8 @@
-map <leader>s <Plug>(easymotion-s2)
 
+" map <leader>s <Plug>(easymotion-s2)
 
+" easymotion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " hjkl  s j k t / ? g/   -- EasyMotion
 " map <Leader>h <Plug>(easymotion-linebackward)

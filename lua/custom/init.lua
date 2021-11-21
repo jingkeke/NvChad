@@ -236,3 +236,8 @@ end)
 -- then source it with
 
 -- require "custom.plugins.mkdir"
+
+
+-- use vim config  ln -s  ~/Documents/GitHub/NvChad/.vimrc_local_nvi ~/.vimrc_local_nvim  2021年11月21日
+-- vim.cmd "source ~/.vimrc_local_nvim"
+
