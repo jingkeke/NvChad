@@ -1,43 +1,17 @@
-<<<<<<< HEAD
--- config = function ()
--- Use uppercase target labels and type as a lower case
--- let g:EasyMotion_use_upper = 1
--- let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 
-||||||| merged common ancestors
-
--- config = function ()
--- Use uppercase target labels and type as a lower case
--- let g:EasyMotion_use_upper = 1
--- let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-
-=======
-
->>>>>>> easymotion vim config add
 -- Turn on case-insensitive feature
 -- let g:EasyMotion_smartcase = 1
 -- map <Leader> <Plug>(easymotion-prefix)
 
 local g = vim.g
 
-<<<<<<< HEAD
-||||||| merged common ancestors
-
-
-=======
 -- 預設的 key mapping 過多
 g.EasyMotion_do_mapping = 0  
 
->>>>>>> easymotion vim config add
 g.EasyMotion_use_upper = 1 -- append a trailing slash to folder names
-g.EasyMotion_keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-g.EasyMotion_smartcase = 1
+g.EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+g.EasyMotion_smartcase = 1 
 
-<<<<<<< HEAD
-g["seak#label"] = 1
-||||||| merged common ancestors
- g['seak#label']  = 1
-=======
 g['seak#label']  = 1
 
 -- use vim config  ln -s  ~/Documents/GitHub/NvChad/.vimrc_local_nvi ~/.vimrc_local_nvim  2021年11月21日
@@ -70,7 +44,6 @@ vim.api.nvim_set_keymap('n', '<Leader>t', '<Plug>(easymotion-t2)', {noremap = tr
 
 
 
->>>>>>> easymotion vim config add
 
 -- end
 
@@ -81,16 +54,16 @@ vim.api.nvim_set_keymap('n', '<Leader>t', '<Plug>(easymotion-t2)', {noremap = tr
 --    if not theme then
 --       theme = require("core.utils").load_config().ui.theme
 --    end
---
+-- 
 --    -- set the global theme, used at various places like theme switcher, highlights
 --    vim.g.nvchad_theme = theme
---
+-- 
 --    local present, base16 = pcall(require, "base16")
---
+-- 
 --    if present then
 --       -- first load the base16 theme
 --       base16(base16.themes(theme), true)
---
+-- 
 --       -- unload to force reload
 --       package.loaded["colors.highlights" or false] = nil
 --       -- then load the highlights
@@ -101,13 +74,16 @@ vim.api.nvim_set_keymap('n', '<Leader>t', '<Plug>(easymotion-t2)', {noremap = tr
 
 -- end
 
+
+
 -- returns a table of colors for givem or current theme
 -- M.get = function(theme)
 --    if not theme then
 --       theme = vim.g.nvchad_theme
 --    end
---
+-- 
 --    return require("hl_themes." .. theme)
 -- end
 
 -- return M
+

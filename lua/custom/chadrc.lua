@@ -23,42 +23,6 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- This is especially useful for me since I spend my days in Python.
 -- Other acceptable values are marker, manual, expr, syntax, diff.
 -- Run :help foldmethod to find out what each of those do.
-<<<<<<< HEAD
---
-
--- showmatch = true,
--- updatetime = 100,
--- ttyfast = true ,
--- so = 5,
--- showmode = true,
--- scrolloff = 12 ,
--- foldenable = true,
--- foldlevelstart = 10,
--- foldnestmax= 10,
--- foldmethod = indent,
--- cursorline = true,
--- wildmenu = true ,
-vim.g.python3_host_prog = "~/.neovim/py3/bin/python"
-vim.g.node_host_prog = "~/.neovim/node/bin/neovim-node-host"
-||||||| merged common ancestors
--- 
-
-   -- showmatch = true,
-   -- updatetime = 100,
-   -- ttyfast = true ,
-   -- so = 5,
-   -- showmode = true,
-   -- scrolloff = 12 ,
-   -- foldenable = true,
-   -- foldlevelstart = 10,
-   -- foldnestmax= 10,
-   -- foldmethod = indent,
-   -- cursorline = true,
-   -- wildmenu = true ,
-vim.g.python3_host_prog = '~/.neovim/py3/bin/python'
-vim.g.node_host_prog = '~/.neovim/node/bin/neovim-node-host'
-   
-=======
 -- 
 
    -- showmatch = true,
@@ -77,21 +41,24 @@ vim.g.python3_host_prog = '~/.neovim/py3/bin/python'
 vim.g.node_host_prog = '~/.neovim/node/bin/neovim-node-host'
 
 
->>>>>>> easymotion vim config add
 
 M.options = {
    relativenumber = true,
-   number = true,
+   number = true, 
+
+
 }
 
 -- M.ui = {
 --   theme = "nord"
 -- }
 
+
+
 -- these are plugin related options
 M.plugins = {
 
-   -- enable and disable plugins (false for disable)
+  -- enable and disable plugins (false for disable)
    status = {
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
@@ -108,6 +75,7 @@ M.plugins = {
       nvimtree = true,
       autopairs = true,
    },
+
 
    options = {
       autopairs = { loadAfter = "nvim-cmp" },
@@ -141,6 +109,7 @@ M.plugins = {
    default_plugin_config_replace = {},
 }
 
+
 M.mappings = {
 
    insert_nav = {
@@ -151,6 +120,7 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
+
 
    -- terminal related mappings
    terminal = {
@@ -166,6 +136,8 @@ M.mappings = {
       new_vertical = "<leader>v",
       new_window = "<leader>t",
    },
+
+
 }
 -- all plugins related mappings
 M.mappings.plugins = {

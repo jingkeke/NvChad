@@ -1,6 +1,7 @@
 --  https://nvchad.github.io/config/Format%20&%20lint
 local ok, null_ls = pcall(require, "null-ls")
 
+
 if not ok then
    return
 end
