@@ -154,20 +154,20 @@ hooks.add("install_plugins", function(use)
 -- Movement
 -- " https://github.com/justinmk/vim-sneak
 
--- use{
---   'justinmk/vim-sneak' ,
---      config = function()
---      end
--- }
--- 
--- use{
---   'easymotion/vim-easymotion',
---     
---       config = function()
---          require("custom.plugins.easymotion")
---       end,
--- 
--- }
+use{
+  'justinmk/vim-sneak' ,
+     config = function()
+     end
+}
+
+use{
+  'easymotion/vim-easymotion',
+    
+      config = function()
+         require("custom.plugins.easymotion")
+      end,
+
+}
 
    use { "nathom/filetype.nvim" }
 

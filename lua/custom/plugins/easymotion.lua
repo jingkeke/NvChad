@@ -16,7 +16,7 @@ g.EasyMotion_use_upper = 1 -- append a trailing slash to folder names
 g.EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 g.EasyMotion_smartcase = 1 
 
- g.seak#label = 1
+ g['seak#label']  = 1
 
 -- end
 
