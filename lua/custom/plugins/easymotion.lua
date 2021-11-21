@@ -1,19 +1,76 @@
+<<<<<<< HEAD
 -- config = function ()
 -- Use uppercase target labels and type as a lower case
 -- let g:EasyMotion_use_upper = 1
 -- let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 
+||||||| merged common ancestors
+
+-- config = function ()
+-- Use uppercase target labels and type as a lower case
+-- let g:EasyMotion_use_upper = 1
+-- let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+
+=======
+
+>>>>>>> easymotion vim config add
 -- Turn on case-insensitive feature
 -- let g:EasyMotion_smartcase = 1
 -- map <Leader> <Plug>(easymotion-prefix)
 
 local g = vim.g
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+
+=======
+-- 預設的 key mapping 過多
+g.EasyMotion_do_mapping = 0  
+
+>>>>>>> easymotion vim config add
 g.EasyMotion_use_upper = 1 -- append a trailing slash to folder names
 g.EasyMotion_keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 g.EasyMotion_smartcase = 1
 
+<<<<<<< HEAD
 g["seak#label"] = 1
+||||||| merged common ancestors
+ g['seak#label']  = 1
+=======
+g['seak#label']  = 1
+
+-- use vim config  ln -s  ~/Documents/GitHub/NvChad/.vimrc_local_nvi ~/.vimrc_local_nvim  2021年11月21日
+vim.cmd "source ~/.vimrc_local_nvim"
+
+vim.api.nvim_set_keymap('n', '<Leader>t', '<Plug>(easymotion-t2)', {noremap = true})
+
+
+
+-- " hjkl  s j k t / ? g/   -- EasyMotion
+-- " map <Leader>h <Plug>(easymotion-linebackward)
+-- map <Leader><Leader>j <Plug>(easymotion-j)
+-- map <Leader><Leader>k <Plug>(easymotion-k)
+-- " map <Leader>l <Plug>(easymotion-lineforward)
+-- 
+-- " <Leader>f{char} to move to {char}
+-- map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+-- nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+-- " vim-sneak behaviour through easymotio
+-- map <Leader><Leader>t <Plug>(easymotion-t2)
+-- nmap <Leader><Leader>t <Plug>(easymotion-overwin-t2)
+-- map <Leader><Leader>s <Plug>(easymotion-f2)
+-- nmap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
+-- 
+-- map <Leader>/ <Plug>(incsearch-easymotion-/)
+-- map <Leader>? <Plug>(incsearch-easymotion-?)
+-- map <Leader>g/ <Plug>(incsearch-easymotion-stay)
+-- 
+
+
+
+
+>>>>>>> easymotion vim config add
 
 -- end
 

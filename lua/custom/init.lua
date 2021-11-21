@@ -94,6 +94,7 @@ hooks.add("setup_mappings", function(map)
    map("", "H", "^", opt)
    map("", "L", "$", opt)
 
+<<<<<<< HEAD
    -- draging lines up and down
    -- map("n", "<leader>k",  ":m .-2<CR>==", opt )
    -- map("n", "<leader>j",  ":m .+1<CR>==", opt)
@@ -110,6 +111,45 @@ hooks.add("setup_mappings", function(map)
 
    -- others
    -----------------------------------------------------------------------------------
+||||||| merged common ancestors
+-- draging lines up and down
+-- map("n", "<leader>k",  ":m .-2<CR>==", opt )
+-- map("n", "<leader>j",  ":m .+1<CR>==", opt)
+map("v", "J",          ":m '>+1<CR>gv=gv", opt)
+map("v", "K",          ":m '<-2<CR>gv=gv", opt)
+
+-- " Movement
+-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+-- " move vertically by visual line
+-- nnoremap j gj
+-- nnoremap k gk
+   map ('v','j', "gj", opt)
+   map ('v','k', "gk", opt)
+
+
+-- others
+-----------------------------------------------------------------------------------
+=======
+   map("", "<leader><leader>f", "<Plug>(easymotion-bd-f)")
+
+-- draging lines up and down
+-- map("n", "<leader>k",  ":m .-2<CR>==", opt )
+-- map("n", "<leader>j",  ":m .+1<CR>==", opt)
+map("v", "J",          ":m '>+1<CR>gv=gv", opt)
+map("v", "K",          ":m '<-2<CR>gv=gv", opt)
+
+-- " Movement
+-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+-- " move vertically by visual line
+-- nnoremap j gj
+-- nnoremap k gk
+   map ('v','j', "gj", opt)
+   map ('v','k', "gk", opt)
+
+
+-- others
+-----------------------------------------------------------------------------------
+>>>>>>> easymotion vim config add
    -- map("i", "jj", "<ESC>", opt)   better-escape 已经加了
    -- map("n", "Q", "<Nop>", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
@@ -147,9 +187,33 @@ hooks.add("install_plugins", function(use)
       config = function() end,
    }
 
+<<<<<<< HEAD
    use {
       "easymotion/vim-easymotion",
+||||||| merged common ancestors
+use{
+  'justinmk/vim-sneak' ,
+     config = function()
+     end
+}
+=======
+-- use{
+--   'justinmk/vim-sneak' ,
+--      config = function()
+--      end
+-- }
+>>>>>>> easymotion vim config add
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+use{
+  'easymotion/vim-easymotion',
+    
+=======
+use{
+  'easymotion/vim-easymotion',
+   requires = {{'justinmk/vim-sneak', opt = true}}, 
+>>>>>>> easymotion vim config add
       config = function()
          require "custom.plugins.easymotion"
       end,
