@@ -203,22 +203,20 @@ hooks.add("install_plugins", function(use)
    --   }
    --
    --
--- " A light-weight LSP plugin based on Neovim's LSP with a highly performant UI (code actions, hover docs, signature help, rename, preview definition, floating terminal, etc...)  https://github.com/glepnir/lspsaga.nvim
+   -- " A light-weight LSP plugin based on Neovim's LSP with a highly performant UI (code actions, hover docs, signature help, rename, preview definition, floating terminal, etc...)  https://github.com/glepnir/lspsaga.nvim
 
-use{
-  "glepnir/lspsaga.nvim",
+   use {
+      "glepnir/lspsaga.nvim",
+   }
 
-}
+   -- "showing diagnostics, reference, telescope results, quickfix, and location lists to help you solve all the trouble your code is causing  https://github.com/folke/trouble.nvim
+   use {
 
--- "showing diagnostics, reference, telescope results, quickfix, and location lists to help you solve all the trouble your code is causing  https://github.com/folke/trouble.nvim
-use{
-
-
- 'folke/trouble.nvim'      
-}
--- https://nvchad.github.io/config/Lsp%20stuff
+      "folke/trouble.nvim",
+   }
+   -- https://nvchad.github.io/config/Lsp%20stuff
    -- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
- use {
+   use {
       "williamboman/nvim-lsp-installer",
       config = function()
          local lsp_installer = require "nvim-lsp-installer"
@@ -232,7 +230,6 @@ use{
       end,
    }
 
-
    use {
       "jose-elias-alvarez/null-ls.nvim",
       after = "nvim-lspconfig",
@@ -240,11 +237,6 @@ use{
          require("custom.plugins.nullls").setup()
       end,
    }
-
-
-
-
-
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
