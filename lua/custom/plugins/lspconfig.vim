@@ -38,6 +38,72 @@ endif
 set wildignore+=*/.git/*,*/.umi/*,*/node_modules/*,*/.mfsu-dev/*,*/.idea/*,*/dist/*,*/tmp/*,*.swp
 
 
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <C-o> <C-o>zz
+" nnoremap <C-i> <C-i>zz
+
+
+" Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+" space open/closes folds
+" nnoremap <space> za
+set foldmethod=indent   " fold based on indent level
+" This is especially useful for me since I spend my days in Python.
+" Other acceptable values are marker, manual, expr, syntax, diff.
+" Run :help foldmethod to find out what each of those do.
+
+
+" Sensible stuff
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
+nmap Q <Nop>
+" 'Q' in normal mode enters Ex mode. You almost never want this.
+"
+"
+
+
+
+" tabs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Useful mappings for managing tabs
+
+"" Let 'tl' toggle between this and the last accessed tab
+"let g:lasttab = 1
+"nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+"au TabLeave * let g:lasttab = tabpagenr()
+
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader><leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
+
+
+" " numbers  go to n tab  **ilike
+" nnoremap <Leader>1 1gt<CR>
+" nnoremap <Leader>2 2gt<CR>
+" nnoremap <Leader>3 3gt<CR>
+" nnoremap <Leader>4 4gt<CR>
+" nnoremap <Leader>5 5gt<CR>
+" nnoremap <Leader>6 6gt<CR>
+" nnoremap <Leader>7 7gt<CR>
+" nnoremap <Leader>8 8gt<CR>
+" nnoremap <Leader>9 9gt<CR>
+" nnoremap <Leader>n :tabnew<CR>
+" nnoremap <Leader>x :tabclose<CR>
+
+
+"  - |     --  Split with leader
+nnoremap <Leader>- :sp<CR>
+nnoremap <Leader>\| :vsp<CR>
+
 
 " EDITOR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
