@@ -27,7 +27,8 @@ hooks.add("setup_mappings", function(map)
    -- 通过 12<Enter> 跳转到第 12 行 （12G 我觉得不称手）
    -- 按 <Enter> 跳到行文件末尾。
    -- 按 <Backspace> 回到文件开始。
-   map("n", "<CR>", "G", opt)
+   -- conflict with copen select !!!!1
+   -- map("n", "<CR>", "G", opt)
    map("n", "<BS>", "gg", opt)
 
    -- <Space>  --  <leader><leader> toggles between buffers
@@ -157,6 +158,31 @@ hooks.add("install_plugins", function(use)
          require "custom.plugins.easymotion"
       end,
    }
+
+--  Multiple cursors like sublime https://github.com/terryma/vim-multiple-cursors
+
+
+-- use{
+--   'terryma/vim-multiple-cursors'   ,
+-- 
+--       config = function()
+--             -- local g =  vim.g 
+-- 
+--             vim.g.multi_cursor_use_default_mapping = 0 
+-- 
+--             vim.g.multi_cursor_start_word_key      = '<A-n>'
+--             -- g.multi_cursor_select_all_word_key = '<A-n>'
+--             -- g.multi_cursor_start_key           = 'g<C-n>'
+--             -- g.multi_cursor_select_all_key      = 'g<A-n>'
+--             vim.g.multi_cursor_next_key            = '<A-n>'
+--             -- g.multi_cursor_prev_key            = '<C-p>'
+--             -- g.multi_cursor_skip_key            = '<C-x>'
+--             vim.g.multi_cursor_quit_key            = '<Esc>'
+-- 
+--       end,
+-- 
+-- }
+
 
    use { "nathom/filetype.nvim" }
 
