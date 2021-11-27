@@ -230,7 +230,6 @@ hooks.add("install_plugins", function(use)
    --
    -- " A light-weight LSP plugin based on Neovim's LSP with a highly performant UI (code actions, hover docs, signature help, rename, preview definition, floating terminal, etc...)  https://github.com/glepnir/lspsaga.nvim
 
-
    -- use {
    --    "glepnir/lspsaga.nvim",
    --    config = function ()
@@ -239,28 +238,28 @@ hooks.add("install_plugins", function(use)
    -- }
 
    -- "showing diagnostics, reference, telescope results, quickfix, and location lists to help you solve all the trouble your code is causing  https://github.com/folke/trouble.nvim
---    use {
--- 
---       "folke/trouble.nvim",
--- 
---       config = function ()
---          require 'trouble'.setup {}
---       end
---   }
+   --    use {
+   --
+   --       "folke/trouble.nvim",
+   --
+   --       config = function ()
+   --          require 'trouble'.setup {}
+   --       end
+   --   }
    -- https://nvchad.github.io/config/Lsp%20stuff
    -- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
    use {
       "williamboman/nvim-lsp-installer",
---       config = function()
---          local lsp_installer = require "nvim-lsp-installer"
--- 
---          lsp_installer.on_server_ready(function(server)
---             local opts = {}
--- 
---             server:setup(opts)
---             vim.cmd [[ do User LspAttachBuffers ]]
---          end)
---       end,
+      --       config = function()
+      --          local lsp_installer = require "nvim-lsp-installer"
+      --
+      --          lsp_installer.on_server_ready(function(server)
+      --             local opts = {}
+      --
+      --             server:setup(opts)
+      --             vim.cmd [[ do User LspAttachBuffers ]]
+      --          end)
+      --       end,
    }
 
    use {

@@ -2,10 +2,6 @@ local M = {}
 local util = require "lspconfig/util"
 
 M.setup_lsp = function(attach, capabilities)
-
-
-
-
    local lsp_installer = require "nvim-lsp-installer"
 
    lsp_installer.on_server_ready(function(server)
@@ -36,26 +32,26 @@ M.setup_lsp = function(attach, capabilities)
             attach(client, bufnr)
 
             -- Use nvim-code-action-menu for code actions for rust
-            buf_set_keymap(bufnr, "n", "<leader>ca", "lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true })
-            buf_set_keymap(bufnr, "v", "<leader>ca", "lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true })
+            buf_set_keymap(
+               bufnr,
+               "n",
+               "<leader>ca",
+               "lua vim.lsp.buf.range_code_action()<CR>",
+               { noremap = true, silent = true }
+            )
+            buf_set_keymap(
+               bufnr,
+               "v",
+               "<leader>ca",
+               "lua vim.lsp.buf.range_code_action()<CR>",
+               { noremap = true, silent = true }
+            )
          end
       end
 
       server:setup(opts)
       vim.cmd [[ do User LspAttachBuffers ]]
    end)
-
-
-
-
-
-
-
-
-
-
-
-
 
    local lspconfig = require "lspconfig"
 
