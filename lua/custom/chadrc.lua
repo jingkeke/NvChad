@@ -56,12 +56,12 @@ M.plugins = {
    status = {
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
-      colorizer = false, -- color RGB, HEX, CSS, NAME color codes
+      colorizer = true, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
       dashboard = true, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
       feline = true, -- statusline
-      gitsigns = true, -- gitsigns in statusline
+      gitsigns = false, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
       telescope_media = false, -- media previews within telescope finders
       vim_matchup = true, -- % operator enhancements
@@ -99,11 +99,18 @@ M.plugins = {
       },
       esc_insertmode_timeout = 300,
    },
-   default_plugin_config_replace = {},
+
+   default_plugin_config_replace = {
+       dashboard = "custom.plugins.dashboard",
+
+   },
 }
 
 M.mappings = {
 
+   close_buffer = "<leader><leader>x",
+   -- save_file = "<C-s>", -- save file using :w
+   save_file = "<Leader>w", -- save file using :w
    insert_nav = {
       backward = "<C-b>",
       end_of_line = "<C-e>",
@@ -121,7 +128,7 @@ M.mappings = {
       -- get out of terminal mode and hide it
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show & recover hidden terminal buffers in a telescope picker
-      pick_term = "<leader><leader>c",
+      pick_term = "<leader><leader>w",
       -- below three are for spawning terminals
       new_horizontal = "<leader>h",
       new_vertical = "<leader>v",

@@ -12,3 +12,9 @@
  vim.cmd "source ~/.vimrc_local_nvim"
 
 - 方案一 直接在plugin 上改!!!!!! 哈哈
+
+
+
+
+you have some other autocommand that causes this.
+Run *:autocmd CursorHold* to see what autocommands you have registered. You can then try to disable them one by one to see which one is causing problems
