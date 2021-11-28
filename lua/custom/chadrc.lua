@@ -101,7 +101,8 @@ M.plugins = {
    },
 
    default_plugin_config_replace = {
-      dashboard = "custom.plugins.dashboard",
+       dashboard = 'custom.plugins.dashboard',
+
    },
 }
 

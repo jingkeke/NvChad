@@ -46,6 +46,10 @@ hooks.add("setup_mappings", function(map)
    -- map("", "<leader>h", ":bprevious<cr>", opt)
    -- 回车
    -- map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+   map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+
+   -- bookmarks dashborad'boomarks  not work 
+   map("n", "<leader><leader>b", ":Telescope marks<CR>" , opt)
 
    --
    --history
@@ -95,7 +99,7 @@ hooks.add("setup_mappings", function(map)
    map("", "H", "^", opt)
    map("", "L", "$", opt)
 
-   map("", "<leader><leader>f", "<Plug>(easymotion-bd-f)")
+   -- map("", "<leader><leader>f", "<Plug>(easymotion-bd-f)")
 
    -- draging lines up and down
    -- map("n", "<leader>k",  ":m .-2<CR>==", opt )
@@ -120,7 +124,7 @@ hooks.add("setup_mappings", function(map)
    -- map("n", "<Leader>w", ":w<CR>", opt)
    -- map("n", "<C-g>", ":Goyo<cr>", opt)
    -- map("n", "<C-g>", "<cmd>TZFocus<CR>", opt)
-   map("n", "<C-g>", "[[<Cmd>TZAtaraxis<CR>]]", opt)
+   --map("n", "<C-g>", "[[<Cmd>TZAtaraxis<CR>]]", opt)
    -- map("n", "gc", ":CommentToggle <CR>")
 
    map("n", "<Leader>os", ":setlocal spell! spelllang=en_us", opt)
@@ -194,21 +198,24 @@ hooks.add("install_plugins", function(use)
    }
 
    --  Distraction free mode
-   -- use{
-   -- "junegunn/goyo.vim"
-   -- }
-   --      use {
-   --       "Pocco81/TrueZen.nvim",
-   --       cmd = {
-   --          "TZAtaraxis",
-   --          "TZMinimalist",
-   --          "TZFocus",
-   --       },
-   --       config = function()
-   --           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
-   --
-   --       end
-   --    }
+use{
+"junegunn/goyo.vim"
+}
+
+
+
+--      use {
+--       "Pocco81/TrueZen.nvim",
+--       cmd = {
+--          "TZAtaraxis",
+--          "TZMinimalist",
+--          "TZFocus",
+--       },
+--       config = function()
+--           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
+-- 
+--       end
+--    }
 
    -- tmux
    use {
