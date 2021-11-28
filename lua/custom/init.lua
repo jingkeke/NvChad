@@ -46,10 +46,10 @@ hooks.add("setup_mappings", function(map)
    -- map("", "<leader>h", ":bprevious<cr>", opt)
    -- 回车
    -- map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
-   map("n", "<leader>;", ":Telescope buffers<CR>" , opt)
+   map("n", "<leader>;", ":Telescope buffers<CR>", opt)
 
-   -- bookmarks dashborad'boomarks  not work 
-   map("n", "<leader><leader>b", ":Telescope marks<CR>" , opt)
+   -- bookmarks dashborad'boomarks  not work
+   map("n", "<leader><leader>b", ":Telescope marks<CR>", opt)
 
    --
    --history
@@ -198,24 +198,22 @@ hooks.add("install_plugins", function(use)
    }
 
    --  Distraction free mode
-use{
-"junegunn/goyo.vim"
-}
+   use {
+      "junegunn/goyo.vim",
+   }
 
-
-
---      use {
---       "Pocco81/TrueZen.nvim",
---       cmd = {
---          "TZAtaraxis",
---          "TZMinimalist",
---          "TZFocus",
---       },
---       config = function()
---           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
--- 
---       end
---    }
+   --      use {
+   --       "Pocco81/TrueZen.nvim",
+   --       cmd = {
+   --          "TZAtaraxis",
+   --          "TZMinimalist",
+   --          "TZFocus",
+   --       },
+   --       config = function()
+   --           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
+   --
+   --       end
+   --    }
 
    -- tmux
    use {
