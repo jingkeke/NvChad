@@ -28,3 +28,12 @@ https://github.com/williamboman/nvim-lsp-installer
 
 you have some other autocommand that causes this.
 Run *:autocmd CursorHold* to see what autocommands you have registered. You can then try to disable them one by one to see which one is causing problems
+
+
+## bugs
+#### File navigation with nvim-tree.lua. 
+
+导致巨慢!!!!2021年12月1日 解决方案: https://github.com/kyazdani42/nvim-tree.lua/issues/549
+
+custom/config/ 导出了文件,用自己的
+

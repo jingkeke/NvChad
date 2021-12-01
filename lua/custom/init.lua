@@ -124,7 +124,7 @@ hooks.add("setup_mappings", function(map)
    -- map("n", "<Leader>w", ":w<CR>", opt)
    -- map("n", "<C-g>", ":Goyo<cr>", opt)
    -- map("n", "<C-g>", "<cmd>TZFocus<CR>", opt)
-   --map("n", "<C-g>", "[[<Cmd>TZAtaraxis<CR>]]", opt)
+   map("n", "<C-g>", "[[<Cmd>TZAtaraxis<CR>]]", opt)
    -- map("n", "gc", ":CommentToggle <CR>")
 
    map("n", "<Leader>os", ":setlocal spell! spelllang=en_us", opt)
@@ -158,7 +158,7 @@ hooks.add("install_plugins", function(use)
 
    use {
       "easymotion/vim-easymotion",
-      requires = { { "justinmk/vim-sneak", opt = true } },
+      -- requires = { { "justinmk/vim-sneak", opt = true } },
       config = function()
          require "custom.plugins.easymotion"
       end,

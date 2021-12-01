@@ -56,10 +56,9 @@ g.nvim_tree_icons = {
 }
 
 nvimtree.setup {
-
-   git ={
-     enable = false
-   } ,
+  git ={
+   enable = false 
+  },
    diagnostics = {
       enable = false,
       icons = {

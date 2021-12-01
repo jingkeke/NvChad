@@ -56,9 +56,9 @@ M.plugins = {
    status = {
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
-      colorizer = true, -- color RGB, HEX, CSS, NAME color codes
+      colorizer = false, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
-      dashboard = true, -- NeoVim 'home screen' on open
+      dashboard = false, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
       feline = true, -- statusline
       gitsigns = false, -- gitsigns in statusline
@@ -101,7 +101,9 @@ M.plugins = {
    },
 
    default_plugin_config_replace = {
-      dashboard = "custom.plugins.dashboard",
+       -- dashboard = 'custom.plugins.dashboard',
+        nvimtree = 'custom.plugins.nvimtree',
+
    },
 }
 
