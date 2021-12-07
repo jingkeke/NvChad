@@ -109,7 +109,7 @@ M.plugins = {
 
 M.mappings = {
 
-   close_buffer = "<leader><leader>x",
+   -- close_buffer = "<leader>x",
    -- save_file = "<C-s>", -- save file using :w
    save_file = "<Leader>w", -- save file using :w
    insert_nav = {
@@ -125,9 +125,9 @@ M.mappings = {
    terminal = {
       -- multiple mappings can be given for esc_termmode and esc_hide_termmode
       -- get out of terminal mode
-      esc_termmode = { "jk" }, -- multiple mappings allowed
+      -- esc_termmode = { "jk" }, -- multiple mappings allowed
       -- get out of terminal mode and hide it
-      esc_hide_termmode = { "JK" }, -- multiple mappings allowed
+      -- esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show & recover hidden terminal buffers in a telescope picker
       pick_term = "<leader><leader>w",
       -- below three are for spawning terminals
@@ -139,49 +139,52 @@ M.mappings = {
 -- all plugins related mappings
 M.mappings.plugins = {
    -- list open buffers up the top, easy switching too
-   bufferline = {
-      next_buffer = "<Tab>", -- next buffer
-      prev_buffer = "<S-Tab>", -- previous buffer
-   },
+   -- bufferline = {
+   --    next_buffer = "<Tab>", -- next buffer
+   --    prev_buffer = "<S-Tab>", -- previous buffer
+   -- },
    -- easily (un)comment code, language aware
    comment = {
       -- toggle = "<leader>/", -- toggle comment (works on multiple lines)
       toggle = "gc", -- toggle comment (works on multiple lines)
    },
    -- NeoVim 'home screen' on open
-   dashboard = {
-      bookmarks = "<leader>bm",
-      new_file = "<leader>fn", -- basically create a new buffer
-      open = "<leader>db", -- open dashboard
-      session_load = "<leader>l", -- load a saved session
-      session_save = "<leader>s", -- save a session
-   },
+   -- dashboard = {
+   --    bookmarks = "<leader>bm",
+   --    new_file = "<leader>fn", -- basically create a new buffer
+   --    open = "<leader>db", -- open dashboard
+   --    session_load = "<leader>l", -- load a saved session
+   --    session_save = "<leader>s", -- save a session
+   -- },
+
    -- map to <ESC> with no lag
-   better_escape = { -- <ESC> will still work
-      esc_insertmode = { "jk" }, -- multiple mappings allowed
-   },
+   -- better_escape = { -- <ESC> will still work
+   --    esc_insertmode = { "jk" }, -- multiple mappings allowed
+   -- },
+
+
    -- file explorer/tree
-   nvimtree = {
-      toggle = "<C-n>",
-      -- toggle = "<leader>oe",
-      focus = "<leader>e",
-   },
+   -- nvimtree = {
+   --    toggle = "<C-n>",
+   --    -- toggle = "<leader>oe",
+   --    focus = "<leader>e",
+   -- },
    -- multitool for finding & picking things
    telescope = {
       buffers = "<leader>fb",
       find_files = "<C-p>",
-      find_hiddenfiles = "<leader>fa",
-      git_commits = "<leader>cm",
-      git_status = "<leader>gt",
-      help_tags = "<leader>fh",
+      -- find_hiddenfiles = "<leader>fa",
+      -- git_commits = "<leader>cm",
+      -- git_status = "<leader>gt",
+      -- help_tags = "<leader>fh",
       live_grep = "<leader><leader>g",
       -- oldfiles = "<leader>fo",
       oldfiles = "<C-y>",
-      themes = "<leader>th", -- NvChad theme picker
+      -- themes = "<leader>th", -- NvChad theme picker
       -- media previews within telescope finders
-      telescope_media = {
-         media_files = "<leader>fp",
-      },
+      -- telescope_media = {
+      --    media_files = "<leader>fp",
+      -- },
    },
 }
 

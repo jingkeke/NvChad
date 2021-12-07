@@ -51,6 +51,7 @@ hooks.add("setup_mappings", function(map)
    -- bookmarks dashborad'boomarks  not work 
    map("n", "<leader><leader>b", ":Telescope marks<CR>" , opt)
 
+
    --
    --history
    -----------------------------------------------------------------------------------
@@ -80,18 +81,12 @@ hooks.add("setup_mappings", function(map)
    -- map("n", "<leader>4", "4gt<CR>", opt)
 
    --" Tmux
-   --todo
-   --"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-   --" These lines change the cursor from block cursor mode to vertical bar cursor mode when using tmux.
-   --" Without these lines, tmux always uses block cursor mode.
-   --" allows cursor change in tmux mode
-   -- if exists('$TMUX')
-   --     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-   --     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-   -- else
-   --     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-   --     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-   -- endif
+   -----------------------------------------------------------------------------------
+
+   -- fm 看的 neww 新建session 后面跟的是shell脚本, 因为放在bin 全局目录里,所以能找到
+ map("", "<Leader><Leader>t", "<cmd>!tmux  neww tmux-sessionizer<CR>", { noremap = true, silent = true })
+ -- map("", "<Leader><leader><CR>", ":so ~/.config/nvim/init.vim<cr>", opt)
+
 
    --
    -- Editor
@@ -99,6 +94,9 @@ hooks.add("setup_mappings", function(map)
    map("", "H", "^", opt)
    map("", "L", "$", opt)
 
+   -- 老感觉误操作
+   map("", "<Leader><leader>o", "<Nop>", opt)
+   map("", "<Leader>o", "<Nop>", opt)
    -- map("", "<leader><leader>f", "<Plug>(easymotion-bd-f)")
 
    -- draging lines up and down
@@ -120,6 +118,8 @@ hooks.add("setup_mappings", function(map)
    -- map("i", "jj", "<ESC>", opt)   better-escape 已经加了
    -- map("n", "Q", "<Nop>", opt)
    map("n", "<Leader>q", ":q<CR>", opt)
+   -- chmod 
+   map("n", "<Leader><leader>x", ":!chmod +x %<cr>", opt)
 
    -- map("n", "<Leader>w", ":w<CR>", opt)
    -- map("n", "<C-g>", ":Goyo<cr>", opt)

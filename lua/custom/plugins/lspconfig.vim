@@ -230,6 +230,14 @@ for i in range(97,122)
 endfor
 
 
+""""""""""""""""""""https://developer.aliyun.com/article/72732
+
+"自动跳转到粘贴文本的最后
+" 使用 ppppp 进行多行多次粘贴操作
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 
 
 " 通过以下的配置可以避免缓冲区的内容被删除的文本内容所覆盖（放到~/.vimrc文件的最后）
@@ -245,6 +253,17 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 
+
+nnoremap <leader><CR> :so ~/.config/nvim/init.lua<CR>
+
+nnoremap <Leader>`z :vsp ~/.zshrc<CR>
+
+
+" quickfix https://frontendmasters.com/courses/vim-fundamentals/quickfix/
+"
+nnoremap <leader>kk :cnext<CR>
+nnoremap <leader>jj :cprev<CR>
+nnoremap <leader>oo :copen<CR>
 
 
 
