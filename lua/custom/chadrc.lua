@@ -2,7 +2,7 @@
 -- This file is for NvChad options & tools, custom settings are split between here and 'lua/custom/init.lua'
 
 local M = {}
-M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
+-- M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 -- NOTE: To use this, make a copy with `cp example_chadrc.lua chadrc.lua`
 
@@ -137,6 +137,9 @@ M.mappings = {
       new_vertical = "<leader>v",
       new_window = "<leader>t",
    },
+
+
+
 }
 -- all plugins related mappings
 M.mappings.plugins = {
@@ -187,6 +190,25 @@ M.mappings.plugins = {
       -- telescope_media = {
       --    media_files = "<leader>fp",
       -- },
+   },
+   lspconfig = {
+      -- declaration = "gD",
+      -- definition = "gd",
+      -- hover = "K",
+      -- implementation = "gi",
+      -- signature_help = "gk",
+      -- add_workspace_folder = "<leader>wa",
+      -- remove_workspace_folder = "<leader>wr",
+      -- list_workspace_folders = "<leader>wl",
+      -- type_definition = "<leader>D",
+      -- rename = "<leader>rn",
+      -- code_action = "<leader>ca",
+      -- references = "gr",
+      -- float_diagnostics = "ge",
+      -- goto_prev = "[d",
+      -- goto_next = "]d",
+      set_loclist = "<leader><leader>q",
+      -- formatting = "<leader>fm",
    },
 }
 

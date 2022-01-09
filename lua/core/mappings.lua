@@ -1,5 +1,4 @@
 local utils = require "core.utils"
-local hooks = require "core.hooks"
 
 local config = utils.load_config()
 local map = utils.map
@@ -110,7 +109,6 @@ M.misc = function()
    non_config_mappings()
    optional_mappings()
    required_mappings()
-   hooks.run("setup_mappings", map)
 end
 
 -- below are all plugin related mappings
@@ -124,8 +122,8 @@ end
 
 M.comment = function()
    local m = plugin_maps.comment.toggle
-   map("n", m, ":CommentToggle <CR>")
-   map("v", m, ":CommentToggle <CR>")
+   map("n", m, ":lua require('Comment.api').toggle_current_linewise()<CR>")
+   map("v", m, ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.dashboard = function()
@@ -138,6 +136,29 @@ M.dashboard = function()
    map("n", m.session_save, ":SessionSave <CR>")
 end
 
+M.lspconfig = function()
+   local m = plugin_maps.lspconfig
+
+   -- See `:help vim.lsp.*` for documentation on any of the below functions
+   map("n", m.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>")
+   map("n", m.definition, "<cmd>lua vim.lsp.buf.definition()<CR>")
+   map("n", m.hover, "<cmd>lua vim.lsp.buf.hover()<CR>")
+   map("n", m.implementation, "<cmd>lua vim.lsp.buf.implementation()<CR>")
+   map("n", m.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+   map("n", m.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
+   map("n", m.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
+   map("n", m.list_workspace_folders, "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+   map("n", m.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+   map("n", m.rename, "<cmd>lua vim.lsp.buf.rename()<CR>")
+   map("n", m.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>")
+   map("n", m.references, "<cmd>lua vim.lsp.buf.references()<CR>")
+   map("n", m.float_diagnostics, "<cmd>lua vim.diagnostic.open_float()<CR>")
+   map("n", m.goto_prev, "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+   map("n", m.goto_next, "<cmd>lua vim.diagnostic.goto_next()<CR>")
+   map("n", m.set_loclist, "<cmd>lua vim.diagnostic.setloclist()<CR>")
+   map("n", m.formatting, "<cmd>lua vim.lsp.buf.formatting()<CR>")
+end
+
 M.nvimtree = function()
    map("n", plugin_maps.nvimtree.toggle, ":NvimTreeToggle <CR>")
    map("n", plugin_maps.nvimtree.focus, ":NvimTreeFocus <CR>")
@@ -147,20 +168,14 @@ M.telescope = function()
    local m = plugin_maps.telescope
 
    map("n", m.buffers, ":Telescope buffers <CR>")
-   map("n", m.find_files, ":Telescope find_files no_ignore=true <CR>")
-   map("n", m.find_hiddenfiles, ":Telescope find_files hidden=true <CR>")
+   map("n", m.find_files, ":Telescope find_files <CR>")
+   map("n", m.find_hiddenfiles, ":Telescope find_files follow=true no_ignore=true hidden=true <CR>")
    map("n", m.git_commits, ":Telescope git_commits <CR>")
    map("n", m.git_status, ":Telescope git_status <CR>")
    map("n", m.help_tags, ":Telescope help_tags <CR>")
    map("n", m.live_grep, ":Telescope live_grep <CR>")
    map("n", m.oldfiles, ":Telescope oldfiles <CR>")
    map("n", m.themes, ":Telescope themes <CR>")
-end
-
-M.telescope_media = function()
-   local m = plugin_maps.telescope.telescope_media
-
-   map("n", m.media_files, ":Telescope media_files <CR>")
 end
 
 return M

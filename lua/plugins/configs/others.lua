@@ -34,6 +34,7 @@ M.blankline = function()
          "TelescopePrompt",
          "TelescopeResults",
          "nvchad_cheatsheet",
+         "",
       },
       buftype_exclude = { "terminal" },
       show_trailing_blankline_indent = false,
@@ -62,7 +63,7 @@ M.colorizer = function()
 end
 
 M.comment = function()
-   local present, nvim_comment = pcall(require, "nvim_comment")
+   local present, nvim_comment = pcall(require, "Comment")
    if present then
       nvim_comment.setup()
    end
@@ -115,15 +116,16 @@ M.lsp_handlers = function()
    lspSymbol("Hint", "")
    lspSymbol("Warn", "")
 
-   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+   vim.diagnostic.config {
       virtual_text = {
          prefix = "",
          spacing = 0,
       },
       signs = true,
       underline = true,
-      update_in_insert = false, -- update diagnostics insert mode
-   })
+      update_in_insert = false,
+   }
+
    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       border = "single",
    })
@@ -132,7 +134,7 @@ M.lsp_handlers = function()
    })
 
    -- suppress error messages from lang servers
-   vim.notify = function(msg, log_level, _opts)
+   vim.notify = function(msg, log_level)
       if msg:match "exit code" then
          return
       end

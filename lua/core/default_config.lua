@@ -25,6 +25,7 @@ M.options = {
    timeoutlen = 400,
    updatetime = 250,
    undofile = true,
+   fillchars = { eob = " " },
 
    -- NvChad options
    nvChad = {
@@ -61,23 +62,34 @@ M.plugins = {
       colorizer = false, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
       dashboard = false,
-      esc_insertmode = true, -- map to <ESC> with no lag
+      better_escape = true, -- map to <ESC> with no lag
       feline = true, -- statusline
       gitsigns = true,
       lspsignature = true, -- lsp enhancements
-      telescope_media = false,
       vim_matchup = true, -- improved matchit
       cmp = true,
       nvimtree = true,
       autopairs = true,
    },
    options = {
+      packer = {
+         init_file = "plugins.packerInit",
+      },
       autopairs = { loadAfter = "nvim-cmp" },
       lspconfig = {
          setup_lspconf = "", -- path of file containing setups of different lsps
       },
       nvimtree = {
          enable_git = 0,
+         -- packerCompile required after changing lazy_load
+         lazy_load = true,
+
+         ui = {
+            allow_resize = true,
+            side = "left",
+            width = 25,
+            hide_root_folder = true,
+         },
       },
       luasnip = {
          snippet_path = {},
@@ -182,6 +194,26 @@ M.mappings.plugins = {
       esc_insertmode = { "jk" }, -- multiple mappings allowed
    },
 
+   lspconfig = {
+      declaration = "gD",
+      definition = "gd",
+      hover = "K",
+      implementation = "gi",
+      signature_help = "gk",
+      add_workspace_folder = "<leader>wa",
+      remove_workspace_folder = "<leader>wr",
+      list_workspace_folders = "<leader>wl",
+      type_definition = "<leader>D",
+      rename = "<leader>rn",
+      code_action = "<leader>ca",
+      references = "gr",
+      float_diagnostics = "ge",
+      goto_prev = "[d",
+      goto_next = "]d",
+      set_loclist = "<leader>q",
+      formatting = "<leader>fm",
+   },
+
    nvimtree = {
       toggle = "<C-n>",
       focus = "<leader>e",
@@ -197,10 +229,6 @@ M.mappings.plugins = {
       live_grep = "<leader>fw",
       oldfiles = "<leader>fo",
       themes = "<leader>th", -- NvChad theme picker
-
-      telescope_media = {
-         media_files = "<leader>fp",
-      },
    },
 }
 
