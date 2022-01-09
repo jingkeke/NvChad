@@ -101,9 +101,8 @@ M.plugins = {
    },
 
    default_plugin_config_replace = {
-       -- dashboard = 'custom.plugins.dashboard',
-        nvimtree = 'custom.plugins.nvimtree',
-
+      -- dashboard = 'custom.plugins.dashboard',
+      nvimtree = "custom.plugins.nvimtree",
    },
 }
 
@@ -112,7 +111,7 @@ M.mappings = {
    -- close_buffer = "<leader>x",
    -- save_file = "<C-s>", -- save file using :w
 
-   -- save_file = "<leader>w", -- not work!!!!!! 
+   -- save_file = "<leader>w", -- not work!!!!!!
    insert_nav = {
       backward = "<C-b>",
       end_of_line = "<C-e>",
@@ -121,7 +120,6 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
-
 
    -- terminal related mappings
    terminal = {
@@ -137,9 +135,6 @@ M.mappings = {
       new_vertical = "<leader>v",
       new_window = "<leader>t",
    },
-
-
-
 }
 -- all plugins related mappings
 M.mappings.plugins = {
@@ -166,7 +161,6 @@ M.mappings.plugins = {
    -- better_escape = { -- <ESC> will still work
    --    esc_insertmode = { "jk" }, -- multiple mappings allowed
    -- },
-
 
    -- file explorer/tree
    -- nvimtree = {

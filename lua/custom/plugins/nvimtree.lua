@@ -14,12 +14,12 @@ g.nvim_tree_git_hl = git_status
 g.nvim_tree_gitignore = 0
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_ignore = {".umi",".umi-production",".mfsu-dev",".mfsu-production", ".git", "node_modules", ".cache" }
+g.nvim_tree_ignore = { ".umi", ".umi-production", ".mfsu-dev", ".mfsu-production", ".git", "node_modules", ".cache" }
 g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
 g.nvim_tree_window_picker_exclude = {
-   filetype = { 'notify', 'packer', 'qf' },
-   buftype = {'terminal' },
+   filetype = { "notify", "packer", "qf" },
+   buftype = { "terminal" },
 }
 
 --
@@ -56,9 +56,9 @@ g.nvim_tree_icons = {
 }
 
 nvimtree.setup {
-  git ={
-   enable = false 
-  },
+   git = {
+      enable = false,
+   },
    diagnostics = {
       enable = false,
       icons = {
