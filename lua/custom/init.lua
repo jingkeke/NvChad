@@ -3,6 +3,10 @@
 
 local hooks = require "core.hooks"
 
+
+-- Stop sourcing filetype.vim
+vim.g.did_load_filetypes = 1
+
 -- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
 
 --------------------------------------------------------------------
@@ -121,7 +125,7 @@ hooks.add("setup_mappings", function(map)
    -- chmod 
    map("n", "<Leader><leader>x", ":!chmod +x %<cr>", opt)
 
-   -- map("n", "<Leader>w", ":w<CR>", opt)
+   map("n", "<Leader>w", ":w<CR>", opt)
    -- map("n", "<C-g>", ":Goyo<cr>", opt)
    -- map("n", "<C-g>", "<cmd>TZFocus<CR>", opt)
    map("n", "<C-g>", "[[<Cmd>TZAtaraxis<CR>]]", opt)
@@ -143,9 +147,9 @@ hooks.add("install_plugins", function(use)
    -- Pairs of mappings [<Space> and ]<Space> add
    -- newlines [f files    https://github.com/tpope/vim-unimpaired
 
-   use {
-      "tpope/vim-unimpaired",
-   }
+   -- use {
+   --    "tpope/vim-unimpaired",
+   -- }
 
    -- Movement
    -- " https://github.com/justinmk/vim-sneak
@@ -156,13 +160,13 @@ hooks.add("install_plugins", function(use)
    --      end
    -- }
 
-   use {
-      "easymotion/vim-easymotion",
-      -- requires = { { "justinmk/vim-sneak", opt = true } },
-      config = function()
-         require "custom.plugins.easymotion"
-      end,
-   }
+   -- use {
+   --    "easymotion/vim-easymotion",
+   --    -- requires = { { "justinmk/vim-sneak", opt = true } },
+   --    config = function()
+   --       require "custom.plugins.easymotion"
+   --    end,
+   -- }
 
    --  Multiple cursors like sublime https://github.com/terryma/vim-multiple-cursors
 
@@ -187,30 +191,33 @@ hooks.add("install_plugins", function(use)
    --
    -- }
 
+
+   -- https://nvchad.github.io/Extras
+
    use { "nathom/filetype.nvim" }
 
    -- https://github.com/haya14busa/incsearch-easymotion.vim  不知道怎么写配置....
    -- use{ 'haya14busa/incsearch-easymotion.vim'}
 
    -- Surround with parentheses & co
-   use {
-      "tpope/vim-surround",
-   }
+   -- use {
+   --    "tpope/vim-surround",
+   -- }
 
    --  Distraction free mode
 
-     use {
-      "Pocco81/TrueZen.nvim",
-      cmd = {
-         "TZAtaraxis",
-         "TZMinimalist",
-         "TZFocus",
-      },
-      config = function()
-          -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
-
-      end
-   }
+--      use {
+--       "Pocco81/TrueZen.nvim",
+--       cmd = {
+--          "TZAtaraxis",
+--          "TZMinimalist",
+--          "TZFocus",
+--       },
+--       -- config = function()
+--           -- check https://github.com/Pocco81/TrueZen.nvim#setup-configuration (init.lua version)
+-- 
+--       -- end
+--    }
 
    -- tmux
    use {
@@ -264,13 +271,13 @@ hooks.add("install_plugins", function(use)
       --       end,
    }
 
-   use {
-      "jose-elias-alvarez/null-ls.nvim",
-      after = "nvim-lspconfig",
-      config = function()
-         require("custom.plugins.nullls").setup()
-      end,
-   }
+   -- use {
+   --    "jose-elias-alvarez/null-ls.nvim",
+   --    after = "nvim-lspconfig",
+   --    config = function()
+   --       require("custom.plugins.nullls").setup()
+   --    end,
+   -- }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

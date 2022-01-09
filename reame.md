@@ -8,6 +8,7 @@
 ## lsp
 ### lsp-installer 
 **这个要执行命令装server** 
+
 ```
 :LspInstallInfo - opens a graphical overview of your language servers
 :LspInstall [--sync] <server> ... - installs/reinstalls language servers. Runs in a blocking fashion if 

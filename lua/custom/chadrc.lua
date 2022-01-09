@@ -38,7 +38,7 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- cursorline = true,
 -- wildmenu = true ,
 vim.g.python3_host_prog = "~/.neovim/py3/bin/python"
-vim.g.node_host_prog = "~/.neovim/node/bin/neovim-node-host"
+-- vim.g.node_host_prog = "~/.neovim/node/bin/neovim-node-host"
 
 M.options = {
    relativenumber = true,
@@ -111,7 +111,8 @@ M.mappings = {
 
    -- close_buffer = "<leader>x",
    -- save_file = "<C-s>", -- save file using :w
-   save_file = "<Leader>w", -- save file using :w
+
+   -- save_file = "<leader>w", -- not work!!!!!! 
    insert_nav = {
       backward = "<C-b>",
       end_of_line = "<C-e>",
@@ -120,6 +121,7 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
+
 
    -- terminal related mappings
    terminal = {
