@@ -147,6 +147,15 @@ customPlugins.add(function(use)
    }
 
    use {
+      "scrooloose/nerdtree",
+      config = function() 
+
+      
+
+
+      end,
+   }
+   use {
       "easymotion/vim-easymotion",
       -- requires = { { "justinmk/vim-sneak", opt = true } },
       config = function()
