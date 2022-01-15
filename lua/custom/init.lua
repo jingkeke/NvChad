@@ -151,55 +151,70 @@ customPlugins.add(function(use)
    -- Movement
    -- " https://github.com/justinmk/vim-sneak
 
-   -- use{
-   --   'justinmk/vim-sneak' ,
-   --      config = function()
-   --      end
-   -- }
+   use{
+     'justinmk/vim-sneak' ,
+        config = function()
+        end
+   }
 
-   -- use {
-   --    "easymotion/vim-easymotion",
-   --    -- requires = { { "justinmk/vim-sneak", opt = true } },
-   --    config = function()
-   --       require "custom.plugins.easymotion"
-   --    end,
-   -- }
+   use {
+      "easymotion/vim-easymotion",
+      -- requires = { { "justinmk/vim-sneak", opt = true } },
+      config = function()
+         require "custom.plugins.easymotion"
+      end,
+   }
 
    --  Multiple cursors like sublime https://github.com/terryma/vim-multiple-cursors
 
-   -- use{
-   --   'terryma/vim-multiple-cursors'   ,
-   --
-   --       config = function()
-   --             -- local g =  vim.g
-   --
-   --             vim.g.multi_cursor_use_default_mapping = 0
-   --
-   --             vim.g.multi_cursor_start_word_key      = '<A-n>'
-   --             -- g.multi_cursor_select_all_word_key = '<A-n>'
-   --             -- g.multi_cursor_start_key           = 'g<C-n>'
-   --             -- g.multi_cursor_select_all_key      = 'g<A-n>'
-   --             vim.g.multi_cursor_next_key            = '<A-n>'
-   --             -- g.multi_cursor_prev_key            = '<C-p>'
-   --             -- g.multi_cursor_skip_key            = '<C-x>'
-   --             vim.g.multi_cursor_quit_key            = '<Esc>'
-   --
-   --       end,
-   --
-   -- }
+   use{
+     'terryma/vim-multiple-cursors'   ,
+
+         config = function()
+               -- local g =  vim.g
+
+               vim.g.multi_cursor_use_default_mapping = 0
+
+               vim.g.multi_cursor_start_word_key      = '<A-n>'
+               -- g.multi_cursor_select_all_word_key = '<A-n>'
+               -- g.multi_cursor_start_key           = 'g<C-n>'
+               -- g.multi_cursor_select_all_key      = 'g<A-n>'
+               vim.g.multi_cursor_next_key            = '<A-n>'
+               -- g.multi_cursor_prev_key            = '<C-p>'
+               -- g.multi_cursor_skip_key            = '<C-x>'
+               vim.g.multi_cursor_quit_key            = '<Esc>'
+
+         end,
+
+   }
 
 
    -- https://nvchad.github.io/Extras
 
-   use { "nathom/filetype.nvim" }
+   use { "nathom/filetype.nvim",
+       config= function()
+          require("filetype").setup({
+        overrides = {
+          extensions = {
+              -- Set the filetype of *.pn files to potion
+              pn = "potion",
+          },
+        }
+
+           })
+
+       end
+
+
+ }
 
    -- https://github.com/haya14busa/incsearch-easymotion.vim  不知道怎么写配置....
    -- use{ 'haya14busa/incsearch-easymotion.vim'}
 
    -- Surround with parentheses & co
-   -- use {
-   --    "tpope/vim-surround",
-   -- }
+   use {
+      "tpope/vim-surround",
+   }
 
    --  Distraction free mode
 
