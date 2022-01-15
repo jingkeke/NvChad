@@ -49,7 +49,6 @@ M.options = {
 --   theme = "nord"
 -- }
 
-
 -- these are plugin related options
 M.plugins = {
 
@@ -71,26 +70,23 @@ M.plugins = {
       autopairs = true,
    },
 
-  nvimtree = {
-         enable_git = 0,
-         -- packerCompile required after changing lazy_load
-         lazy_load = true,
+   nvimtree = {
+      enable_git = 0,
+      -- packerCompile required after changing lazy_load
+      lazy_load = true,
 
-         ui = {
-            allow_resize = true,
-            side = "left",
-            width = 25,
-            hide_root_folder = true,
-         },
-
-   default_plugin_config_replace = {
-       -- dashboard = 'custom.plugins.dashboard',
-        nvimtree = 'custom.plugins.nvimtree',
-
-   },
+      ui = {
+         allow_resize = true,
+         side = "left",
+         width = 25,
+         hide_root_folder = true,
       },
 
-
+      default_plugin_config_replace = {
+         -- dashboard = 'custom.plugins.dashboard',
+         nvimtree = "custom.plugins.nvimtree",
+      },
+   },
 
    options = {
       autopairs = { loadAfter = "nvim-cmp" },
@@ -123,8 +119,8 @@ M.plugins = {
    },
 
    default_plugin_config_replace = {
-       dashboard = 'custom.plugins.dashboard',
-        nvimtree = 'custom.plugins.nvimtree',
+      dashboard = "custom.plugins.dashboard",
+      nvimtree = "custom.plugins.nvimtree",
    },
 }
 
@@ -133,7 +129,7 @@ M.mappings = {
    -- close_buffer = "<leader>x",
    -- save_file = "<C-s>", -- save file using :w
 
-   -- save_file = "<leader>w", -- not work!!!!!! 
+   -- save_file = "<leader>w", -- not work!!!!!!
    insert_nav = {
       backward = "<C-b>",
       end_of_line = "<C-e>",
@@ -142,7 +138,6 @@ M.mappings = {
       prev_line = "<C-j>",
       beginning_of_line = "<C-a>",
    },
-
 
    -- terminal related mappings
    terminal = {
@@ -158,9 +153,6 @@ M.mappings = {
       new_vertical = "<leader>v",
       new_window = "<leader>t",
    },
-
-
-
 }
 -- all plugins related mappings
 M.mappings.plugins = {
