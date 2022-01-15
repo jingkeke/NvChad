@@ -1,6 +1,9 @@
 local M = {}
 local util = require "lspconfig/util"
 
+local lspconfig = require "lspconfig"
+local configs = require "lspconfig/configs"
+
 M.setup_lsp = function(attach, capabilities)
    local lsp_installer = require "nvim-lsp-installer"
 
@@ -38,7 +41,7 @@ M.setup_lsp = function(attach, capabilities)
       --       end
 
       if server.name == "tsserver" then
-         root_dir = util.root_pattern(".git", "tsconfig.json", "jsconfig.json")
+         opts.root_dir = util.root_pattern(".git", "tsconfig.json", "jsconfig.json")
 
          opts.on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false
@@ -51,23 +54,26 @@ M.setup_lsp = function(attach, capabilities)
             attach(client, bufnr)
 
             -- Use nvim-code-action-menu for code actions for rust
-            buf_set_keymap(
-               bufnr,
-               "n",
-               "<leader>ca",
-               "<cmd>lua vim.lsp.buf.range_code_action()<CR>",
-               { noremap = true, silent = true }
-            )
-            buf_set_keymap(
-               bufnr,
-               "v",
-               "<leader>ca",
-               "<cmd>lua vim.lsp.buf.range_code_action()<CR>",
-               { noremap = true, silent = true }
-            )
-            buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
+            -- buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true })
+            -- buf_set_keymap(bufnr, "v", "<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true })
+            -- buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
          end
       end
+
+      if server.name == "emmet_ls" then
+         local capabilities = vim.lsp.protocol.make_client_capabilities()
+         capabilities.textDocument.completion.completionItem.snippetSupport = true
+         opts.capabilities = capabilities
+         opts.filetypes = { "html", "css", "blade" }
+
+         opts.cmd = { "emmet-ls", "--stdio" }
+         opts.root_dir = function(fname)
+            return vim.loop.cwd()
+         end
+         -- opts.settings = {};
+      end
+
+      -- todo 没验证 emmet-ls  https://github.com/aca/emmet-ls
 
       server:setup(opts)
       vim.cmd [[ do User LspAttachBuffers ]]

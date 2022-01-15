@@ -37,7 +37,7 @@ local M = {}
 -- foldmethod = indent,
 -- cursorline = true,
 -- wildmenu = true ,
-vim.g.python3_host_prog = "~/.neovim/py3/bin/python"
+-- vim.g.python3_host_prog = "~/.neovim/py3/bin/python"
 -- vim.g.node_host_prog = "~/.neovim/node/bin/neovim-node-host"
 
 M.options = {
@@ -60,7 +60,7 @@ M.plugins = {
       comment = true, -- easily (un)comment code, language aware
       dashboard = false, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
-      feline = true, -- statusline
+      feline = false, -- statusline
       gitsigns = false, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
       telescope_media = false, -- media previews within telescope finders
@@ -68,6 +68,24 @@ M.plugins = {
       cmp = true,
       nvimtree = true,
       autopairs = true,
+   },
+
+   nvimtree = {
+      enable_git = 0,
+      -- packerCompile required after changing lazy_load
+      lazy_load = true,
+
+      ui = {
+         allow_resize = true,
+         side = "left",
+         width = 25,
+         hide_root_folder = true,
+      },
+
+      default_plugin_config_replace = {
+         -- dashboard = 'custom.plugins.dashboard',
+         nvimtree = "custom.plugins.nvimtree",
+      },
    },
 
    options = {
@@ -101,7 +119,7 @@ M.plugins = {
    },
 
    default_plugin_config_replace = {
-      -- dashboard = 'custom.plugins.dashboard',
+      dashboard = "custom.plugins.dashboard",
       nvimtree = "custom.plugins.nvimtree",
    },
 }
@@ -162,12 +180,6 @@ M.mappings.plugins = {
    --    esc_insertmode = { "jk" }, -- multiple mappings allowed
    -- },
 
-   -- file explorer/tree
-   -- nvimtree = {
-   --    toggle = "<C-n>",
-   --    -- toggle = "<leader>oe",
-   --    focus = "<leader>e",
-   -- },
    -- multitool for finding & picking things
    telescope = {
       buffers = "<leader>fb",

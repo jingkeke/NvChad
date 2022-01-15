@@ -2,19 +2,20 @@
 " lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ref https://elijahmanor.com/blog/neovim-tmux
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 " nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gH    <cmd>:Telescope lsp_code_actions<CR>
-nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> gH    <cmd>:Telescope lsp_code_actions<CR>
+" nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 " nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 " nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent><leader>fo <cmd>lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
 " autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 5000)
 " autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 5000)
 
+let g:completion_trigger_character = ['.']
 
 
 
@@ -254,7 +255,7 @@ vmap <silent> <expr> p <sid>Repl()
 
 
 
-nnoremap <leader><CR> :so ~/.config/nvim/init.lua<CR>
+" nnoremap <leader><CR> :so ~/.config/nvim/init.lua<CR>
 
 nnoremap <Leader>`z :vsp ~/.zshrc<CR>
 
