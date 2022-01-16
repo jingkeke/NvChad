@@ -279,7 +279,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ref https://medium.com/life-at-moka/step-up-your-game-with-neovim-62ba814166d7
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
-let g:NERDTreeIgnore = ['^node_modules$','^.git'] " ignore node_modules to increase load speed
+let g:NERDTreeIgnore = ['^node_modules$','^.git','^.umi','^.umi-production','.idea','dist'] " ignore node_modules to increase load speed
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
 " noremap <silent> <C-b> :NERDTreeToggle<CR>
