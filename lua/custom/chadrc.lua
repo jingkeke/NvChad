@@ -66,7 +66,7 @@ M.plugins = {
       telescope_media = false, -- media previews within telescope finders
       vim_matchup = true, -- % operator enhancements
       cmp = true,
-      nvimtree = false,
+      nvimtree = true,
       autopairs = true,
    },
 
