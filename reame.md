@@ -16,6 +16,8 @@
 https://github.com/williamboman/nvim-lsp-installer
 
 
+ 
+
 ### easymotion 烦了,实在不会改了........  2021年11月21日
 - 方案二 
  use vim config  

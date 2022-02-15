@@ -61,10 +61,24 @@ let g:completion_trigger_character = ['.']
 
 
 
+" term2 ctr+u 改背景色 但是vim不变透明 如下修改
 
+" hi NonText ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
 
+" transparent bg
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-
+let t:is_transparent = 0
+function! Toggle_transparent_background()
+  if t:is_transparent == 0
+    hi Normal guibg=#111111 ctermbg=black
+    let t:is_transparent = 1
+  else
+    hi Normal guibg=NONE ctermbg=NONE
+    let t:is_transparent = 0
+  endif
+endfunction
 
 
 
@@ -270,11 +284,11 @@ nnoremap <leader>oo :copen<CR>
 
 " xxx
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" filetype plugin on
 
 " * NERDTree
 " Close vim if only window left is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ref https://medium.com/life-at-moka/step-up-your-game-with-neovim-62ba814166d7
 let g:NERDTreeShowHidden = 1
@@ -285,7 +299,7 @@ let g:NERDTreeStatusline = '' " set to empty to use lightline
 " noremap <silent> <C-b> :NERDTreeToggle<CR>
 
 " " Map to open current file in NERDTree and set size
-nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
+" nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
 
 " NERDTree Syntax Highlight
 " " Enables folder icon highlighting using exact match
@@ -344,7 +358,8 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 
 
-nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
+" " Map to open current file in NERDTree and set size
+" nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
 nnoremap <leader>e :NERDTreeFind<bar> :vertical resize 45<CR>
 
 

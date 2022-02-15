@@ -13,9 +13,6 @@ map("n", "<leader>q", ":q <CR>")
 -- Install plugins
 local customPlugins = require "core.customPlugins"
 
-
-
-
 customPlugins.add(function(use)
    use {
       "max397574/better-escape.nvim",
